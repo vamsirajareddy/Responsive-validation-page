@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>Validation page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<script type ="text/javascript">
+function validate() {
+  var mymessage = document.getElementById('mymessage');
+  var fname = document.getElementById('fname').value;
+  var lname = document.getElementById('lname').value;
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  if(fname == "" || lname == "" || email == "" || password == ""){
+    mymessage.innerHTML ='<span style ="color:red ; font-weight:bold;">Please fill all the required fields</span>';
+  }
+  else if (fname.length <3) {
+    mymessage.innerHTML ='<span style = "color:red; font-weight:bold;">Your  first name is too short</span>';
+
+  }
+  else if (lname.length <3) {
+    mymessage.innerHTML ='<span style = "color:red; font-weight:bold;">Your last name is too short</span>';
+  }
+  else if (password.length <6) {
+    mymessage.innerHTML ='<span style = "color:red; font-weight:bold;">Your password must be between 6 to 16 digits</span>';
+  }
+else {
+  mymessage.innerHTML ='<span style = "color:green; font-weight:bold;">Form submitted succesfully</span>';
+
+}
+}
+
+</script>
+<body>
+  <div class="container col-md-offset-3">
+  <div id ="mymessage" style="height:60px; margin-left:15px; height:70px;"></div>
+  <form>
+    <div class="col-md-6">
+    <input type="text" placeholder="First name " id= "fname" class="form-control"><br><br>
+    <input type="text" placeholder="Last Name " id= "lname" class="form-control"><br><br>
+    <input type="email" placeholder="Email " id= "email" email="required" class="form-control"><br><br>
+    <input type="password" placeholder="Password " id= "password" class="form-control"><br><br>
+    <input type="button" class="btn btn-success btn-block" value ="Submit" onclick="validate()">
+  </div>
+  </form>
+</div>
+</body>
+</html>
